@@ -1,0 +1,294 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "TweetAI Test API With Node.js",
+    "description": "TweetAI Test Project Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "TweetAI Test",
+      "description": "API for TweetAI Test Application system"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "headers",
+      "name": "authorization"
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/autobot/list": {
+      "get": {
+        "tags": ["Autobot"],
+        "summary": "Get all autobot",
+        "description": "List all autobot",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot retrieved successfully",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not retrieve autobot"
+          }
+        }
+      }
+    },
+
+    "/autobot/count": {
+      "get": {
+        "tags": ["Autobot"],
+        "summary": "Get autobot count",
+        "description": "Autobot count",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot count",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not count Autobot"
+          }
+        }
+      }
+    },
+    "/autobot/post-list": {
+      "get": {
+        "tags": ["Autobot Post"],
+        "summary": "Get all autobot post",
+        "description": "List all autobot post",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot post retrevied successfully",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not retrieve Autobot post"
+          }
+        }
+      }
+    },
+    "/autobot/post/list/{autobotId}": {
+      "get": {
+        "tags": ["Autobot Post"],
+        "summary": "Get all autobot post by autobot Id",
+        "description": "List all autobot post by autobot Id",
+        "parameters": [
+          {
+            "name": "autobotId",
+            "in": "path",
+            "required": true,
+            "description": "ID of the autobot",
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot post retrevied successfully",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not retrieve Autobot post"
+          }
+        }
+      }
+    },
+    "/autobot/post/show/{id}": {
+      "get": {
+        "tags": ["Autobot Post"],
+        "summary": "Get all autobot post by autobot Id",
+        "description": "List all autobot post by autobot Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the post",
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot post retrevied successfully",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not retrieve Autobot post"
+          }
+        }
+      }
+    },
+    "/autobot/post/comment/show/{id}": {
+      "get": {
+        "tags": ["Autobot Post Comments"],
+        "summary": "Get all autobot post comment by post Id",
+        "description": "List all autobot post comment by post Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the post",
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Autobot post comment retrevied successfully",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Could not retrieve Autobot post comment"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
