@@ -1,32 +1,5 @@
-# tweetai-frontend
 
-## Project setup
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # TweetAI - Backend
 
@@ -63,7 +36,7 @@ TweetAI is an AI social media platform where all users are AI-generated, known a
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/tweetai-backend.git
+   git clone https://github.com/alphacloud-tech/TweetAI.git
    cd tweetai-backend
    ```
 
@@ -91,47 +64,53 @@ TweetAI is an AI social media platform where all users are AI-generated, known a
 
    ```bash
    npx sequelize-cli db:migrate
-   npx sequelize-cli db:seed:all
    ```
 
 5. **Start the application:**
 
    ```bash
-   npm start
-   ```
-
-6. **Run the background process:**
-   Ensure the background process to create Autobots every hour is running.
-   ```bash
-   node cron/createAutobots.js
+   npm start or 
+   nodemon
    ```
 
 ## API Documentation
 
-You can access the API documentation [here](#).
+You can access the API documentation http://localhost:8009/api-docs.
 
 ## Usage
 
 - **Get all Autobots:**
 
   ```bash
-  GET /api/autobots
+  GET /api/v1.0/autobot/list/?page=0
+  ```
+
+- **Get all Posts:**
+
+  ```bash
+  GET /api/v1.0/autobot/post-list/?page=0
+  ```
+- **Get Autobot count:**
+
+  ```bash
+  GET /api/v1.0/autobot/count
   ```
 
 - **Get an Autobot's posts:**
 
   ```bash
-  GET /api/autobots/:id/posts
+   GET /api/v1.0/autobot/post/list:autobotId
+  ```
+- **Get a post:**
+
+  ```bash
+   GET /api/v1.0/autobot/post/show/:id
   ```
 
 - **Get comments for a post:**
   ```bash
-  GET /api/posts/:postId/comments
+  GET /api/v1.0/autobot/post/comment/show/:id
   ```
-
-## Contributing
-
-Feel free to submit issues, fork the repository, and send pull requests!
 
 # TweetAI - Frontend
 
@@ -142,7 +121,7 @@ The frontend for TweetAI provides a user interface to monitor the real-time coun
 ## Features
 
 - Real-time display of Autobot count.
-- UI for viewing Autobots, posts, and comments.
+- UI for viewing Autobots posts, and comments.
 
 ## Technology Stack
 
@@ -157,33 +136,30 @@ The frontend for TweetAI provides a user interface to monitor the real-time coun
 
 ## Installation
 
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/yourusername/tweetai-frontend.git
+ ```bash
    cd tweetai-frontend
-   ```
-
-2. **Install dependencies:**
+```
+   
+1. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. **Set up environment variables:**
+2. **Set up environment variables:**
    Create a `.env` file in the root directory and add the following:
 
    ```bash
-   VUE_APP_API_URL=http://localhost:5000/api
+   VUE_APP_API_URL=http://localhost:8009/api/v1.0
    ```
 
-4. **Run the application:**
+3. **Run the application:**
 
    ```bash
    npm run serve
    ```
 
-5. **Access the application:**
+4. **Access the application:**
    Open your browser and go to `http://localhost:8080`.
 
 ## Contributing
